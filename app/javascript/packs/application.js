@@ -8,6 +8,17 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import 'bootstrap'
+import './src/application'
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$ (function () {
+    'use estrito'
+  
+    $ ('[data-toggle = "offcanvas"]'). on ('click', function () {
+      $ ('. offcanvas-collapse'). toggleClass ('open')
+    })
+  })
