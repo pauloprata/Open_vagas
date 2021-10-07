@@ -2,8 +2,9 @@ class CompaniesController < ApplicationController
   def new
     @company = current_user.build_company
   end
-
+ 
   def edit
+    @company = current_user.company
   end
 
   def create
@@ -23,6 +24,6 @@ class CompaniesController < ApplicationController
   private 
 
   def company_params 
-    params.require(:company).permit(:nam, :url, :logo)
+    params.require(:company).permit(:name, :url, :logo)
   end
 end
