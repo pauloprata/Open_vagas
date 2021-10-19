@@ -1,5 +1,5 @@
 %h1.h3.mb-3.font-weight-normal.title{:style => "text-align: center"} Login
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name),class:"logreg-forms") do |f|
   .form-inputs
     = f.input :email, required: false, label: false, autofocus: true, input_html: { autocomplete: "email" }, placeholder: 'E-mail'
     = f.input :password, required: false, label: false, input_html: { autocomplete: "current-password" }, placeholder: 'Senha'
