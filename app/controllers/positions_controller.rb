@@ -18,7 +18,7 @@ class PositionsController < ApplicationController
   def create
     @position = @company.positions.new(params_position)
 
-      if position.save
+      if @position.save
       flash[:sucsess]= "VAGA CADASTRADA COM SUCESSO"
       redirect_to positions_path
 
@@ -51,12 +51,16 @@ class PositionsController < ApplicationController
   end
 
   def set_i18n_careers
-    @careers = I18n.t('activerecord.attributes.position.careers')
+    @careers = Position.careers.map do |career,v|
+      [career, I18n.t(career, scope:'activerecord.attributes.position.careers')]
+    end
   end
 
   def set_i18n_contracts
-    @contracts = I18n.t('activerecord.attributes.position.contracts')
-  end
+    @contracts = Position.contracts.map do |contract,v|
+      [contract, I18n.t(contract, scope:'activerecord.attributes.position.contracts')] 
+    end
+end
 end
 
 
